@@ -1,22 +1,12 @@
 from flask import Flask, render_template, url_for
-from pymongo import MongoClient
-from dotenv import load_dotenv
-import os
-
-
-
-
-
+import json
 
 app = Flask(__name__)
 
 
-
-
-
-
-
-
+def load_keyboards():
+    with open('keyboards.json', 'r', encoding='utf-8') as file:
+        return json.load(file)
 
 @app.route("/")
 def home():
@@ -26,17 +16,19 @@ def home():
 def game():
     return render_template('game.html')
 
-
 @app.route("/keyboard")
-def GrandTheftAuto5():
+def keyboard():
     return render_template('keyboard.html')
 
 @app.route("/game/RedDeadRedemption2")
 def RedDeadRedemption2():
     return render_template('RedDeadRedemption2.html')
 
-
 @app.route("/game/DetroitBecomeHuman")
 def DetroitBecomeHuman():
     return render_template('DetroitBecomeHuman.html')
-app.run()
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
