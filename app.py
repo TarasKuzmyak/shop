@@ -12,9 +12,9 @@ def load_keyboards():
 def home():
     return render_template('home.html')
 
-@app.route("/game")
-def game():
-    return render_template('game.html')
+@app.route("/login")
+def login():
+    return render_template('login.html')
 
 @app.route("/keyboard")
 def keyboard():
